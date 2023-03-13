@@ -1,6 +1,5 @@
 package com.example.userservicejwt.controller;
 
-import com.example.userservicejwt.dto.AuthToken;
 import com.example.userservicejwt.dto.UserDto;
 import com.example.userservicejwt.entity.Role;
 import com.example.userservicejwt.entity.User;
@@ -11,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -20,6 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 @SecurityRequirement(name = "javainuseapi")
 public class ApiController {
@@ -59,9 +58,10 @@ public class ApiController {
     }
 
     //OPTIONAL API TO LOGIN TO DISPLAY ON SWAGGER, COMMENT IT IF U WANT
-    @PostMapping("/login")
-    public AuthToken login(String email, String password)
-    {
-        return userService.login(email,password);
-    }
+//    @CrossOrigin
+//    @PostMapping("/login")
+//    public AuthToken login(String email, String password)
+//    {
+//        return userService.login(email,password);
+//    }
 }
